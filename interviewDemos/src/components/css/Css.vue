@@ -8,8 +8,7 @@
             <b>1. css盒模型</b>
             <p>css中有2种盒模型：w3c盒模型和IE盒模型，可以通过css属性box-sizing来切换这2种盒模型。</p>
             <p>box-sizing: content-box | border-box，其中content-box是默认值，指代W3c盒模型，该模式下区块的宽度和高度不包括padding、border和margin；
-                border-box指代IE盒模型，容器的宽高包括内容区域+padding+border+margin。 </p>  
-            <p>盒模型图例：</p>     
+                border-box指代IE盒模型，容器的宽高包括内容区域+padding+border+margin。</p>            <p>盒模型图例：</p>     
             <img class="css-box-img" src="../../assets/image/css-box.png" alt="css盒模型图例">
             <p>所以，content-box = content， 而border-box = content+padding+border+margin。</p>
         </div>
@@ -38,7 +37,7 @@
                     background-color: #000;
                 }
             </pre>
-            <b>实际原理是：让原本高度为1px的线变模糊了，因为有部分浏览器宽高最小单位为1px（比如chrome）</b>
+            <b>实际原理是：让原本高度为1px的线变模糊了，视觉上有了变成0.5像素的高度，实际上整条线占据的高度还是1px，因为有部分浏览器宽高最小单位为1px（比如chrome）</b>
         </div>
 
     </div>  
