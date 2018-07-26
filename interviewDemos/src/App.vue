@@ -13,7 +13,7 @@
         <li>
           <router-link to="/other">前端面试练习 ---- 其他</router-link>
         </li>
-      </ul>   
+      </ul>
     </div>
     <hr>
     <router-view/>
