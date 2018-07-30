@@ -13,12 +13,12 @@
 
     <ul>
       <li>
-        <p>undefined类型：只包含一个特殊的值undefined，当变量被申明但是未被初始化时，它的值就是undefined。</p>
+        <p>undefined类型：只包含一个特殊的值undefined，当变量被声明但是未被初始化时，它的值就是undefined。</p>
         <pre>
           let myName;
           console.log( myName );  // 输出undefined
         </pre>
-        <p>一般来说，无需显式申明一个变量的值为undefined。undefined的主要作用是区分变量是未被定义（变量未被定义使用会直接产生语法错误）还是已经定义但未被初始化时。</p>
+        <p>一般来说，无需显式声明一个变量的值为undefined。undefined的主要作用是区分变量是未被定义（变量未被定义使用会直接产生语法错误）还是已经定义但未被初始化时。</p>
         <pre>
           let myName;
           console.log(myName);  // 输出undefined
@@ -27,10 +27,10 @@
           console.log( typeof myName );   // undefined
           console.log( typeof myJob );    // undefined
         </pre>
-        <p>如果想要通过typeof操作符显式地判断变量是未被初始化还是未定义，那么应该应该显示地初始化变量，那么剩余typeof myVar未"undefined"的变量就是未定义的。</p>
+        <p>如果想要通过typeof操作符显式地判断变量是未被初始化还是未定义，那么应该应该显示地初始化变量，那么剩余typeof myVar为"undefined"的变量就是未定义的。</p>
       </li>
       <li>
-        <p>null类型：只包含一个特殊的值null，null值代表一个空指针对象，所以“typeof null”返回“object”。所以如果一个变量将用于保存对象，那么最好用null来初始化该变量，检测null值得方式如下：</p>
+        <p>null类型：只包含一个特殊的值null，null值代表一个空指针对象，所以“typeof null”返回“object”。所以如果一个变量将用于保存对象，那么最好用null来初始化该变量，检测null值的方式如下：</p>
         <pre>
           if( typeof myVar == "object" && myVar != null ){
             // 是对象类型而且不是空对象，继续对myVar进行对象操作
@@ -52,7 +52,7 @@
       <li>
         <p>Number类型：Number类型支持整数、浮点数，还支持十进制、八进制和十六进制等；NaN：非数值，表示非数字，可以通过函数isNaN()来判断一个数据是否是NaN</p>
         <pre>
-          <p>对于数字（number）类型（出去NaN本身）、可以被转换为数字类型的（true（可被转换为1）、false（可被转换为0）、数字字符串（"10"）等），isNan()都会返回true，表明该变量是一个NaN。</p>
+          <p>对于数字（number）类型（除去NaN本身）、可以被转换为数字类型的（true（可被转换为1）、false（可被转换为0）、数字字符串（"10"）等），isNaN()都会返回false，表明该变量是一个Number类型或者可以被转换为Number类型的数据。</p>
           <p>可以通过函数Number()将一些非数字类型数据转换为数字类型，例如：</p>
           Number(true);   // 1
           Number("Hello world!");   // NaN
@@ -75,7 +75,7 @@
 
     <h3>二、变量声明（var、let和const）</h3>
     <p>javascript（ES2015）目前有三种方式声明变量：分别是使用关键字var、let和const。</p>
-    <h3>** 变量提升：简而言之，变量在被声明时，浏览器对JavaScript代码的处理逻辑是，把变量的声明提到当前作用域的最前面（对于var而言是函数作用于的最前面，而let和const不允许在被定义前使用）。 **</h3>
+    <h3>** 变量提升：简而言之，变量在被声明时，浏览器对JavaScript代码的处理逻辑是，把变量的声明提到当前作用域的最前面（对于var而言是函数作用域的最前面，而let和const不允许在被定义前使用）。 **</h3>
     <pre>
       实例说明：
 
@@ -107,7 +107,7 @@
         <p>let: 用来定义变量，作用域是块级作用域，不存在“变量提升”，在被定义前不能被访问（所以不存在“变量提升”），同一个作用域内不能被重新定义，只能被重新赋值。</p>
       </li>
       <li>
-        <p>const：用来定义常量，作用域是会计作用域，不存在“变量提升”，在被定义前不能被访问（所以不存在“变量提升”），同一个作用域内不能被重新定义，也不能被重新赋值（常量）。</p>
+        <p>const：用来定义常量，作用域是块级作用域，不存在“变量提升”，在被定义前不能被访问（所以不存在“变量提升”），同一个作用域内不能被重新定义，也不能被重新赋值（常量）。</p>
       </li>
     </ul>
     <hr>
@@ -115,7 +115,7 @@
     <h3>三、函数</h3>
     <p>JavaScript的函数没有函数签名，所以就没有重载。</p>
     <b>函数签名：由函数名、参数列表组成，来代表该函数的唯一性，从而实现重载。重载：即具有相同函数名，但是参数不同的函数被视为不同的函数。</b>
-    <p>javascript中，函数的参数被存储在arguments对象中，它可以向数组一样通过下表来访问函数的参数（从0开始），arguments.length属性代表了函数的参数个数。同时，也正因为函数的参数被存储在arguments对象中，类似于一个数组，所以在调用函数时几遍传入的参数与函数声明的参数不一致（参数个数不一致，弱类型不需要考虑参数类型），JavaScript也不会报错；同时，传入的参数可以使任何类型的数据，包括：数字、字符串、对象等。</p>
+    <p>javascript中，函数的参数被存储在arguments对象中，它可以向数组一样通过下标来访问函数的参数（从0开始），arguments.length属性代表了函数的参数个数。同时，也正因为函数的参数被存储在arguments对象中，类似于一个数组，所以在调用函数时即便传入的参数与函数声明的参数不一致（参数个数不一致，弱类型不需要考虑参数类型），JavaScript也不会报错；同时，传入的参数可以使任何类型的数据，包括：数字、字符串、对象等。</p>
     <pre>
       通过实例来使用一下arguments对象：
 
@@ -195,7 +195,7 @@
       <pre>
         实例如下：
         var obj = new Object();  // 通过构造函数来创建引用类型的实例
-        obj.name = "老夫子";     // 为Obj实例添加属性
+        obj.name = "老夫子";     // 为obj实例添加属性
         // 还可以通过字面量表示法创建Object类型的实例，作用相当于使用Object构造函数创建实例
         var obj = {};     // 创建一个空对象，等价于 new Object()
         var Obj = {
@@ -266,7 +266,7 @@
       </pre>
 
       <p>数组操作方法concat()、slice()和splice()</p>
-      <p>concat: 对数组进行拼接，接受一个到多个参数,参数可以是任意类型的数据：包括数字、字符串、数组和对象等。用法：array.concat(arguments)</p>
+      <p>concat: 对数组进行拼接，接受一个到多个参数,参数可以是任意类型的数据：包括数字、字符串、数组和对象等，操作的是数组的副本，返回拼接后的结果数组。用法：array.concat(arguments)</p>
       <pre>
         var arr = [1,2,3];
         arr.concat();   // 参数为空，返回数组本身[1,2,3]
@@ -330,13 +330,119 @@
         var arr = [1,2,3,4];
         arr.splice(2,0,"老夫子",1,4);  // 返回一个空数组（因为没有删除任何一项），原数组本身：[1, 2, "老夫子", 1, 4, 3, 4]
       </pre>
-      <p><b>删除</b>: 可向指定位置插入任意数量的项，第一个参数为起始位置，第二个为删除的项数，后续的所有参数将从起始位置插入</p>
+      <p><b>替换</b>: 可向指定位置插入任意数量的项，第一个参数为起始位置，第二个为删除的项数，后续的所有参数将从起始位置插入</p>
       <pre>
         var arr = [1,2,3,4];
         arr.splice(2,1,"老夫子",1,4);  // 返回一个[3] ，原数组本身：[1, 2, "老夫子", 1, 4, 4]
         // 其中被插入的项可以使任意数据类型，包括：数字、字符串、数组、对象等等
         arr.splice(2,1,"老夫子",1,[7,8,9],{name:"大番薯"});
       </pre>
+
+      <p>位置方位：indexof()和lastIndexOf()</p>
+      <p>indexof(): 接收2个参数，要查找的项和（可选项）查找起点位置的索引，从数组头部开始匹配，在没有匹配到的情况下返回-1，找到的情况的返回该项在数组中第一个匹配的项的索引位置。</p>
+      <p>lastIndexof(): 接收2个参数，要查找的项和（可选项）查找起点位置的索引，从数组尾部开始匹配，在没有匹配到的情况下返回-1，找到的情况的返回该项在数组中第一个匹配的项的索引位置。</p>
+      <pre>
+        var numbers = [1,2,3,4,5,4,3,2,1];
+        console.log( numbers.indexOf(3) );        // 从首第一个匹配项的索引为：2
+        console.log( numbers.lastIndexOf(3) );    // 从尾第一个匹配项的索引为：6
+        console.log( numbers.indexOf(3,4) );      // 从索引为4的位置开始匹配的第一个匹配项的索引为：6
+        console.log( numbers.lastIndexOf(3,4) );  // 从索引为4的位置从尾开始匹配的第一个匹配项的索引为：2
+      </pre>
+
+      <b>Function 类型</b>
+      <p>Function类型也是引用类型，这意味着每一个函数实际上也是对象，函数名就是指向函数对象的指针，这意味着存在多个不同函数名指向同一个函数对象。</p>
+      <p>函数有2种声明方式：函数声明和函数表达式。两者在被解析器解析时，解析器会先读取函数声明，并使其在实行人和代码之前可以被访问，<b>这意味着通过函数声明定义的函数可以被定义在代码中的任何位置。</b>而函数表达式会直到解析器执行到它所在代码行时，它才会被真正解析执行。</p>
+      <pre>
+        doAdd(1,2);   // 通过函数声明定义的函数，可以在任意位置调用该函数
+        function doAdd(){
+          if( arguments.length >= 1 ){
+            let sum=0;
+            for(let i=0; i &lt; arguments.length; i++){
+              sum += Number( arguments[i] ) ;
+            }
+            console.log(sum);
+          } else {
+            console.log(0);
+          }
+        }
+
+        var doAddFunc = function () {
+          if( arguments.length >= 1 ){
+            let sum=0;
+            for(let i=0; i &lt; arguments.length; i++){
+              sum += Number( arguments[i] ) ;
+            }
+            console.log(sum);
+          } else {
+            console.log(0);
+          }
+        };
+
+        // 通过函数表达式定义的函数，只有在被定义的代码后才能使用调用该函数，否则会报函数未定义的错
+        doAddFunc(2,3);
+      </pre>
+
+      <p>函数名本身就是一个变量，它只是指向函数对象的一个“指针”。所以函数名也可以作为函数参数来使用，函数的调用也可以作为函数的参数使用。</p>
+      <pre>
+        var doAddFunc = function () {
+          if( arguments.length >= 1 ){
+            let sum=0;
+            for(let i=0; i &lt; arguments.length; i++){
+              sum += Number( arguments[i] ) ;
+            }
+            console.log(sum);
+          } else {
+            console.log(0);
+          }
+        };
+
+        // 定义调用函数
+        function someFunc( param1, param2){
+          console.log( arguments[0] );
+          console.log( arguments[1] );
+        }
+        // 函数名作为参数
+        someFunc( doAddFunc ,"func");  // 输出 doAddFunc的函数体和 字符串"func"
+        // 函数的调用作为参数,则传入的参数会是函数调用的返回值，没有返回值时传入的会是undefined
+        someFunc(  doAddFunc(2,3), "func");  // 输出 doAddFunc(2,3)的返回值(没有返回值，就是undefined)和 字符串"func"
+      </pre>
+
+      <p>函数的内部属性：callee属性和this对象</p>
+      <p>arguments的callee属性：该属性是一个指针，指向拥有这个arguments对象的函数，也就是说arguments.callee属性代表的就是当前函数的函数名。</p>
+      <pre>
+        // 通过arguments.callee属性来改造阶乘函数
+        function factorial( num ){
+          if( num &lt;= 1 ){
+            return 1;
+          } else {
+            return num * factorial( num-1 );
+          }
+        }
+
+        // 使用arguments.callee属性代替函数名，从而降低代码耦合度
+        function factorial( num ){
+          if( num-1 &lt;= 1 ){
+            return 1;
+          } else {
+            return num * arguments.callee( num-1 );    // 使用arguments.callee属性代替函数名
+          }
+        }
+      </pre>
+      <p>this对象：this对象在不同的作用域中指代的是不同的对象，比如浏览器中全局环境中的this指的就是window对象，this对象用来代表当前对象。</p>
+
+      <p>基本包装类型：ECMAScript提供了3个特殊的引用类型：Boolean、Number和String来方便操作基本类型（对应布尔型、Number型和String型）。</p>
+      <p>原理解析：<b>基本类型值不是对象（只有引用类型的一个实例才是对象），所以逻辑上基本类型值不应该具有方法（但实际上有）。实际上在通过基本类型值调用方法时是后台进行了一系列的处理，使得直观上我们是通过基本类型值来调用了方法。</b></p>
+      <pre>
+        //比如：
+        var s1 = "some text";
+        var s2 = s1.substring(2);  // "me text"
+
+        // 在后台实际上执行了一系列的操作
+        var s1 = new String("some text");     // 创建一个包装类型String的实例
+        var s2 = s1.subString(2);             // 让对象s1调用方法
+        s1 = null;                            // 销毁对象实例
+      </pre>
+      <p><b>正因为基本类型对应包装类型的实例在执行完方法后就销毁掉了该实例，所以之后就无法访问到该实例，后续对想要该实例的属性和方法都无法成功。</b></p>
   </div>
 </template>
 
